@@ -3,6 +3,6 @@
 using namespace std;
 
 int main() {
-    cout<<PI;
+    cout<<"****\n"<<"***\n"<<"**\n"<<"*\n";
     return 0;
 }
