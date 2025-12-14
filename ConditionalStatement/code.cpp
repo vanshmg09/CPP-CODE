@@ -2,13 +2,31 @@
 using namespace std;
 
 int main() {
-    int age = 34;
+    int a,b ;
+    char symbol;
 
-    if(age>=18){
-        cout<< "Can vote" ; 
-    } else {
-        cout<< "Can't vote";
-    }
+     cout<< "Enter a: ";
+     cin>> a;
+
+     cout<< "Enter b: ";
+     cin>> b;
+
+     cout<< "Enter symbol: ";
+     cin>> symbol;
+
+     switch(symbol){
+        case '+' : cout<< a+b <<endl;
+                break;
+        case '-' : cout<< a-b <<endl;
+                break;
+        case '*' : cout<< a*b <<endl;
+                break;
+        case '/' : cout<< a/b <<endl;
+                break;
+        
+        default: cout<< "Invalid";
+               
+     }
 
     return 0 ;
 }
