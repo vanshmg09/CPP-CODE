@@ -2,17 +2,19 @@
 using namespace std;
 
 int main() {
-    int n;
-    int sum=0 ;
-     
-    cout<<"Enter n: ";
-    cin>>n;
+    int i=1;
 
-    for(int i=1; i<=n; i++){
-        
-         sum += i ;
-    } 
-    cout<<sum;
+    while(true){
+       int n ;
+       cout<<"Enter n: ";
+       cin>> n;
+       if(n%10 == 0){
+        continue;
+       }
+       cout<<"You entered: "<<n<<endl;
+    }
+     
+    cout<<"finish";
 
     return 0 ;
 }
