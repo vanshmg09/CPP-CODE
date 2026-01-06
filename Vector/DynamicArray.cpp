@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int main() {
+void func(){
     int size;
     cin>>size;
 
@@ -13,4 +13,20 @@ int main() {
         cout<<arr[i]<<" ";
         x++;
     }
+
+    cout<<endl;
+    delete [] arr;
+}
+
+void funcInt(){
+    int *ptr = new int;
+    *ptr = 6;
+    cout<<*ptr;
+
+    delete ptr;
+}
+
+int main() {
+    func();
+    funcInt();
 }
