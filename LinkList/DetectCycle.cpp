@@ -79,6 +79,46 @@ bool isCycle(Node* head){
     return false;
 }
 
+void removeCycle(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    bool isCycle = false;
+
+    while(fast!=NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(slow == fast){
+            cout<<"cycle exist\n";
+            isCycle = true;
+            break;
+        }
+    }
+
+    if(!isCycle){
+        cout<<"cycle does not exist\n";
+        return;
+    }
+
+    if(slow == fast){
+        while(fast->next != slow){
+            fast = fast->next;
+        }
+        fast->next = NULL;
+    } else{
+        slow = head;
+        Node* prev = fast;
+
+        while(slow != fast){
+            slow = slow->next;
+            prev = fast;
+            fast = fast->next;
+        }
+        prev->next = NULL;
+    }
+
+}
+
 int main(){
     List ll;
     ll.push_front(4);
@@ -87,7 +127,9 @@ int main(){
     ll.push_front(1);
     ll.tail->next = ll.head;
 
-    isCycle(ll.head);
+    removeCycle(ll.head);
+
+    printList(ll.head);
     
 
 }
