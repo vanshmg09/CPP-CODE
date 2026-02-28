@@ -1,0 +1,44 @@
+#include<iostream>
+#include<list>
+#include<iterator>
+
+using namespace std;
+
+void printList(list<int> ll){
+    list<int>:: iterator itr;
+
+    for(itr = ll.begin(); itr!=ll.end(); itr++){
+        cout<<(*itr)<< " -> ";
+    }
+    cout<<"NULL\n";
+}
+
+int main(){
+    list<int> ll;
+
+    ll.push_front(2);
+    ll.push_front(1);
+
+    ll.push_back(3);
+    ll.push_back(4);
+
+    printList(ll);
+
+    // ll.pop_back();
+    // printList(ll);
+
+    // cout<<ll.size();
+
+    cout<<"head = "<<ll.front()<<"\n";
+    cout<<"tail = "<<ll.back()<<"\n";
+
+
+    list<int>:: iterator itr = ll.begin();
+    advance(itr, 2);
+    advance(itr, -1);
+    
+    ll.insert(itr, 40);
+
+    printList(ll);
+
+}
