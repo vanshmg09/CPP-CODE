@@ -1,0 +1,95 @@
+https://leetcode.com/problems/valid-anagram/description/
+
+
+Code
+Testcase
+Testcase
+Test Result
+242. Valid Anagram
+Solved
+Easy
+Topics
+premium lock icon
+Companies
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+
+Output: true
+
+Example 2:
+
+Input: s = "rat", t = "car"
+
+Output: false
+
+============================================================================
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+    //     if(s.length()!= t.length()){
+    //     return false;
+    //     }
+    
+    //     int count[26] = {0};
+
+    //     for(int i=0; i<s.length(); i++){
+    //         int idx = s[i] - 'a';
+    //         count[idx]++;
+    //     }
+
+    //     for(int i=0; i<t.length(); i++){
+    //         int idx = t[i] - 'a';
+    //         if(count[idx]==0){
+    //             return false;
+    //         } else{
+    //             count[idx]--;
+    //         }
+    //     }
+
+    //     return true;    
+    // }
+
+    // ==========================================
+    // Using unordered map
+
+    if(s.size() != t.size()){
+        return false;
+    }
+
+    unordered_map<char, int>m;
+
+    for(int i=0; i<s.size(); i++){
+        if(m.count(s[i])){
+            m[s[i]]++;
+        }else{
+            m[s[i]] = 1;
+        }
+    }
+
+    //2nd loop for checking ele in t
+
+    for(int i=0 ; i<t.size(); i++){
+        if(m.count(t[i])){
+            m[t[i]]--;
+            if(m[t[i]] == 0){
+                m.erase(t[i]);
+            }
+        }else{
+            return false;
+        }
+    }
+
+    if(m.size() != 0){
+        return false;
+    }
+
+    return true;
+
+    }
+};

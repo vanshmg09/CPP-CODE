@@ -1,0 +1,90 @@
+// 169. Majority Element
+// Solved
+// Easy
+// Topics
+// premium lock icon
+// Companies
+// Given an array nums of size n, return the majority element.
+
+// The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [3,2,3]
+// Output: 3
+// Example 2:
+
+// Input: nums = [2,2,1,1,1,2,2]
+// Output: 2
+
+// ========================================================================
+
+// https://leetcode.com/problems/majority-element/description/?utm=codolio
+
+// =========================================================================
+
+// #include <bits/stdc++.h>
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+//         time limit exceed
+
+//         int maj;
+//         int occur = 0;
+
+//         for(int i=0; i<nums.size(); i++){
+//             int cur = nums[i];
+//             int count = 0;
+//             for(int j=0; j<nums.size(); j++){
+//                 if(nums[j] == cur){
+//                     count++;
+//                 }
+//             }
+//             if(count> occur){
+//                 occur = count;
+//                 maj = cur;
+//             }
+//         }
+
+//         return maj;
+
+//         =====================================
+
+
+//         // More's Voting Algo
+//         int el, count = 0;
+//         for(int i=0; i<nums.size(); i++){
+//             if(count == 0){
+//                 el = nums[i];
+//                 count++;
+//             }else if(el == nums[i]){
+//                 count++;
+//             }else if(el != nums[i]){
+//                  count--;
+//             }
+//         }
+//         return el;
+
+//         =================================================
+
+//         Unorder Map
+//         unordered_map<int,int> m;
+
+//         for(int i=0; i<nums.size(); i++){
+//             if(m.count(nums[i])){
+//                 m[nums[i]]++;
+//             }else{
+//                 m[nums[i]] = 1;
+//             }
+//         }
+
+//         for(pair<int, int> f : m){
+//             if(f.second > (nums.size()/2)){
+//                 return f.first;
+//             }
+//         }
+//         return -1;
+//     }
+// };
